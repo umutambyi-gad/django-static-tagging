@@ -29,10 +29,10 @@ with open(htmlFile, 'r') as file:
 
 
 	for i in range(len(double_quoted_matches)):
-		contents = contents.replace(double_quoted_matches[i], r"{% static '" + double_quoted_matches[i] + r"' %}")
+		contents = re.sub(double_quoted_matches[i], r"{% static '" + double_quoted_matches[i] + r"' %}", contents)
 
 	for i in range(len(single_quoted_matches)):
-		contents = contents.replace(single_quoted_matches[i], r"{% static '" + single_quoted_matches[i] + r"' %}")
+		contents = re.sub(single_quoted_matches[i], r"{% static '" + single_quoted_matches[i] + r"' %}", contents)
 
 with open(htmlFile, 'w') as file:
 	file.write(contents)
