@@ -39,12 +39,17 @@ with open(htmlFile, 'r') as file:
 
 
 	# replacing the all double quoted matches
+	# [*{* double }] to avoid duplicates
+	double = [*{*double}]
 	for i in range(len(double)):
 		contents = re.sub(double[i], r"{% static '" + double[i] + r"' %}", contents)
 
 	# replacing the all single quoted matches
+	# [*{* single }] to avoid duplicates
+	single = [*{*single}]
 	for i in range(len(single)):
-		contents = re.sub(single[i], r"{% static '" + single[i] + r"' %}", contents)
+		contents = re.sub(single[i], r'{% static "' + single + r'" %}', contents)
+
 
 with open(htmlFile, 'w') as file:
 	file.write(contents)
