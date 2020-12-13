@@ -1,38 +1,50 @@
 import re
-from compiler import regex_for_href_with_double_quotes as d_hr
-from compiler import regex_for_src_with_double_quotes as d_sr
-from compiler import regex_for_href_with_single_quotes as s_hr
-from compiler import regex_for_src_with_single_quotes as s_sr
+from compiler import regex_for_href_with_double_quotes as d_href
+from compiler import regex_for_src_with_double_quotes as d_src
+from compiler import regex_for_href_with_single_quotes as s_href
+from compiler import regex_for_src_with_single_quotes as s_src
+
 
 htmlFile = 'index.html'
-double_quoted_matches = []
-single_quoted_matches = []
+double = [] # double quoted matches ex. href=""
+single = [] # single quoted matches ex. href=''
 
 
 with open(htmlFile, 'r') as file:
 	contents = file.read()
-	for i in re.finditer(d_hr, contents): 
+
+	# finding matches from double quoted 'href'
+	for i in re.finditer(d_href, contents): 
+		# avoid all matches to be and html files or from the other websites
 		if not i.group(2).startswith('http') and not i.group(2).endswith('html'):
-			double_quoted_matches.append(i.group(2))
+			double.append(i.group(2))
 
-	for i in re.finditer(d_sr, contents): 
+	# finding matches from double quoted 'src'
+	for i in re.finditer(d_src, contents): 
+		# avoid all matches to be and html files or from the other websites
 		if not i.group(2).startswith('http') and not i.group(2).endswith('html'):
-			double_quoted_matches.append(i.group(2))
+			double.append(i.group(2))
 
-	for i in re.finditer(s_hr, contents): 
+    # finding matches from single quoted 'src'
+	for i in re.finditer(s_href, contents): 
+		# avoid all matches to be and html files or from the other websites
 		if not i.group(2).startswith('http') and not i.group(2).endswith('html'):
-			single_quoted_matches.append(i.group(2))
+			single.append(i.group(2))
 
-	for i in re.finditer(s_sr, contents): 
+	# finding matches from single quoted 'href'
+	for i in re.finditer(s_src, contents): 
+		# avoid all matches to be and html files or from the other websites
 		if not i.group(2).startswith('http') and not i.group(2).endswith('html'):
-			single_quoted_matches.append(i.group(2))
+			single.append(i.group(2))
 
 
-	for i in range(len(double_quoted_matches)):
-		contents = re.sub(double_quoted_matches[i], r"{% static '" + double_quoted_matches[i] + r"' %}", contents)
+	# replacing the all double quoted matches
+	for i in range(len(double)):
+		contents = re.sub(double[i], r"{% static '" + double[i] + r"' %}", contents)
 
-	for i in range(len(single_quoted_matches)):
-		contents = re.sub(single_quoted_matches[i], r"{% static '" + single_quoted_matches[i] + r"' %}", contents)
+	# replacing the all single quoted matches
+	for i in range(len(single)):
+		contents = re.sub(single[i], r"{% static '" + single[i] + r"' %}", contents)
 
 with open(htmlFile, 'w') as file:
 	file.write(contents)
