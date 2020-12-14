@@ -11,7 +11,7 @@ with open('fileToFormat.txt', 'r', encoding="utf8") as file:
 def formating(htmlFile):
 	double = [] # double quoted matches ex. href=""
 	single = [] # single quoted matches ex. href=''
-	contents = r"{% load static %}\n"
+	contents = "{% load static %}\n"
 
 	with open(htmlFile, 'r', encoding="utf8") as file:
 		contents += file.read()
