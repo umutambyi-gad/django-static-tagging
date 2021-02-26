@@ -10,4 +10,4 @@ C:/Users/username/index.html
 Users/username/about.html
 C:/Users/username/path/home.html
 ```
-after that run `format.py` script to format it
+after that run `format.py` script to format it.
