@@ -1,5 +1,5 @@
 # django static html format
-When I'm on django project I spend much time formatting an html file after collecting static files
+When I'm on django project I spend much time formatting an html file after collecting static,
 so in that case I created this script to automate it for me instead of going one on every static file's link in markup and add `{% static 'file' %}`
 ## Author
 [***Umutambyi Gad***](https://umutambyigad.herokuapp.com)
