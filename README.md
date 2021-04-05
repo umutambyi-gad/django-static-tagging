@@ -1,12 +1,6 @@
 # django-static-tagging
 When I'm on Django project I spend more time formatting an html file after collecting static,
 so in that case I created this script to automate it for me instead of going one on every static file's link in markup and add `{% static 'file' %}`
-## Table of content
-<ul>
-  <li><b><a href="#author">Author</a></b></li>
-  <li><b><a href="#usage">Usage</a></b></li>
-  <li><b><a href="#license">License</a></b></li>
-</ul>
 
 ## Author
 **Website:** [umutambyigad](https://umutambyigad.herokuapp.com) <br>
