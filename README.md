@@ -3,6 +3,7 @@ When I'm on Django project I spend more time formatting an html file after colle
 so in that case I created this script to automate it for me instead of going one on every static file's link in markup and add `{% static 'file' %}`
 
 ## Author
+**Gitlab** [@umutambyi-gad](https://gitlab.com/umutambyi-gad) <br>
 **Website:** [umutambyigad](https://umutambyigad.herokuapp.com) <br>
 **Stackoverflow:** [@umutambyi-gad](https://stackoverflow.com/users/13536893/umutambyi-gad) <br>
 **Twitter:** [@umutambyi_gad](https://twitter.com/umutambyi_gad) <br>
